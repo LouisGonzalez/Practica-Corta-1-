@@ -1,0 +1,90 @@
+Proceso hanoi
+	dimension numDiscos[3,10], torre[3]
+	repetirPrograma=1
+	mientras repetirPrograma=1 hacer 		
+		escribir "Bienvenido a Las torres de Hanoi"
+		escribir "Ingrese la cantidad de discos con los que jugara"
+		escribir "Minimo 2, Maximo 10"
+		leer cantDiscos
+		Limpiar Pantalla
+		mientras cantDiscos<2 o cantDiscos>10 hacer 
+			escribir "El numero que ingreso esta fuera de los parametros"
+			leer cantDiscos
+			Limpiar Pantalla
+		FinMientras
+		torre[1]=cantDiscos
+		torre[2]=0
+		torre[3]=0
+		mientras torre[3]<>cantDiscos hacer 
+			limpiar pantalla 
+			para posicionX<-1 hasta 3 con paso 1 hacer 
+				escribir "torre: ",posicionX
+					segun numDiscos[posicionX,posicionY] hacer 
+						1: 
+							escribir "            z"
+						2: 
+							escribir "           zzz"
+						3: 
+							escribir "          zzzzz"
+						4: 
+							escribir "         zzzzzzz"
+						5: 
+							escribir "        zzzzzzzzz"
+						6:
+							escribir "       zzzzzzzzzzz"
+						7: 
+							escribir "      zzzzzzzzzzzzz"
+						8: 
+							escribir "     zzzzzzzzzzzzzzzz"
+						9: 
+							escribir "    zzzzzzzzzzzzzzzzzz"
+						10: 
+							escribir "   zzzzzzzzzzzzzzzzzzzz"
+					FinSegun
+				FinPara
+				escribir "------------------------------"
+				escribir ""
+				escribir "" 
+		
+			FinPara
+			escribir "Numero de la torre desde donde desea mover "
+			leer disco1
+			escribir "Numero de la torre a donde desea mover "
+			leer disco2 
+			falla=mensajeFalla(retorno)
+		
+			si disco1<1 o disco1>3 o disco2<1 o disco2>3 entonces 
+				escribir falla
+				esperar tecla 
+			sino 
+				si torre[disco1]=0 entonces 
+					escribir falla
+					esperar tecla 
+				sino 
+					
+				
+					si siPuede=verdadero Entonces
+						torre[disco2]=torre[disco2]+1
+						numDiscos[disco2]=discoMover
+						torre[disco1]=torre[disco1]-1
+					Sino
+						escribir falla
+						esperar tecla 
+					FinSi
+				finsi 
+			finsi 
+			Limpiar Pantalla
+	
+		FinMientras
+		escribir "Felicidades, has ganado el juego"
+		escribir "Porfavor presiona cualquiera tecla para continuar"
+		esperar Tecla
+		Limpiar Pantalla
+		escribir "Deseas jugar de nuevo?  1. SI  Cualquier otro numero. Volver al menu"
+		leer repetirPrograma
+		Limpiar Pantalla
+	FinMientras
+FinProceso
+subproceso retorno = mensajeFalla(arg)
+	escribir "Movimiento erroneo, intenta de nuevo" 
+FinSubProceso

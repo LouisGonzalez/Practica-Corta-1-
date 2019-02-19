@@ -1,0 +1,120 @@
+Proceso Ahorcado
+	Dimension a[11], b[11]
+	a[1]="-" 
+	a[2]="-"
+	a[3]="-"
+	a[4]="-"
+	a[5]="-"
+	a[6]="-"
+	a[7]="-"
+	a[8]="-"
+	a[9]="-"
+	a[10]="-"
+	intentos<-10	
+	Escribir "Bienvenido a AHORCADO" 
+	Escribir "Anfitrion ingrese palabra a escribir (maximo 10 letras)"
+	escribir "Despues de escribir la palabra DOBLE ENTER para iniciar"
+	Leer palabraAsignada
+	Limpiar Pantalla
+	cantidad=Longitud(palabraAsignada)
+	si cantidad<=10 Entonces
+		Escribir ""
+		para i<-1 hasta cantidad con paso 1 
+			b[i]=Subcadena(palabraAsignada,i,i)
+		FinPara
+		mientras palabraAsignada<>palabraTotal y intentos>0  hacer 
+			Escribir "Ingrese la palabra que desea conveniente" 
+			Escribir "PISTA, es una palabra de ",cantidad," letras"
+			Leer letraAsignada
+			si letraAsignada=b[1] o letraAsignada=b[2] o letraAsignada=b[3] o letraAsignada=b[4] o letraAsignada=b[5] o letraAsignada=b[6] o letraAsignada=b[7] o letraAsignada=b[8] o letraAsignada=b[9] o letraAsignada=b[10]   entonces
+				para i<-1 hasta 11 con paso 1 
+					si letraAsignada=b[i] entonces
+						aux<-a[i]
+						a[i]<-b[i]
+						b[i]<-aux
+						escribir ""
+					Finsi
+					Limpiar Pantalla
+		
+				FinPara	
+				palabraTotal=a[1]+a[2]+a[3]+a[4]+a[5]+a[6]+a[7]+a[8]+a[9]+a[10]+a[11]
+			Sino
+				intentos<-intentos-1
+				para w<-1 hasta 1 con paso 1 
+					Limpiar Pantalla
+				FinPara
+			FinSi
+			escribir palabraTotal
+			escribir ""
+			escribir ""
+			si intentos = 9 Entonces
+				escribir " "
+				escribir " "
+				escribir "|"
+				escribir "|"
+			FinSi
+			si intentos = 8 Entonces
+				escribir "|"
+				escribir "|"
+				escribir "|"
+				escribir "|"
+			FinSi
+			si intentos = 7 Entonces
+				escribir "|------"
+				escribir "|"
+				escribir "|"
+				escribir "|"
+			FinSi
+			si intentos = 6 Entonces
+				escribir "|------|"
+				escribir "|"
+				escribir "|"
+				escribir "|"
+			FinSi
+			si intentos = 5 Entonces
+				escribir "|------|"
+				escribir "|      O"
+				escribir "|"
+				escribir "|"
+			FinSi
+			si intentos = 4 Entonces
+				escribir "|------|"
+				escribir "|      O"
+				escribir "|      |"
+				escribir "|"
+			FinSi
+			si intentos = 3 Entonces
+				escribir "|------|"
+				escribir "|      O"
+				escribir "|     /|\"
+				escribir "|"
+			FinSi
+			si intentos = 2 Entonces
+				escribir "|------|"
+				escribir "|      O"
+				escribir "|     /|\"
+				escribir "|     /"
+			FinSi
+			si intentos = 1 Entonces
+				escribir "|------|"
+				escribir "|      O"
+				escribir "|     /|\"
+				escribir "|     / "
+			FinSi
+		finmientras  
+		si intentos = 0 Entonces
+			escribir "|------|"
+			escribir "|      O"
+			escribir "|     /|\"
+			escribir "|     / \"
+			escribir "Has perdido :(, la palabra correcta era ***",palabraAsignada,"***"
+		sino 
+			escribir "Has ganado el juego FELICIDADES! :D"
+		FinSi
+	Sino
+		Escribir "La palabra debe ser menor a 10 letras"
+	FinSi
+	esperar tecla 
+	limpiar pantalla 
+	
+FinProceso

@@ -1,0 +1,388 @@
+proceso basquetball 
+	primerTurno<-azar(100)+1
+	repetirPrograma=1
+	mientras repetirPrograma=1 hacer 
+		escribir "Bienvenido a BASQUETBALL"
+		escribir "Porfavor jugador 1 escriba el nombre de su equipo"
+		leer jugador1
+		escribir "Porfavor jugador 2 escriba el nombre de su equipo"
+		leer jugador2 
+		limpiar pantalla 
+		escribir "Bienvenidos ",jugador1," , ",jugador2
+		Escribir "Defina el numero de turnos del partido(rango entre 5 a 20)"
+		leer numTurnos
+		Limpiar Pantalla
+		mientras numTurnos>=5 y numTurnos<=20 hacer 
+			escribir "A continuacion se elegira al azar el jugador que iniciara"
+			escribir "Presione cualquier tecla para continuar"
+			esperar Tecla
+			Limpiar Pantalla
+			para contadorTurnos<-1 hasta numTurnos con paso 1 
+				si primerTurno<=50 Entonces
+					Escribir "Turno de ",jugador1
+					Escribir "Presione cualquier tecla para continuar"
+					esperar Tecla
+					Limpiar Pantalla
+					Escribir "Eliga una de las opciones de ataque que se le presentan a continuacion"
+					escribir "1. Salto Largo (3 pts y 65% probabilidad de anotar)"
+					escribir "2. Salto Corto (2 pts y 80% probabilidad de anotar)"
+					leer opcionAtaque
+					Limpiar Pantalla
+					si opcionAtaque=1 Entonces
+						escribir "A elegido Salto Largo"
+						escribir "Presione cualquier tecla para saber su resultado"
+					Sino
+						si opcionAtaque=2 entonces 
+							escribir "A elegido Salto Corto"
+							escribir "Presione cualquier tecla para saber su resultado"
+						FinSi
+					FinSi
+					esperar Tecla
+					Limpiar Pantalla
+					escribir "Turno de ",jugador2
+					escribir "Presione cualquier tecla para continuar"
+					esperar tecla
+					Limpiar Pantalla
+					escribir "Eliga una de las opciones de defensa que se le presentan a continuacion"
+					escribir "1. Defensa cuerpo a cuerpo (reduce la posibilidad de anotar en un 15% y da un 35% de posibilidad de cometer falta"
+					escribir "2. Defensa fuerte (reduce la posibilidad de anotar en un 30% y da un 65% de probabilidad de cometer falta"
+					leer opcionDefensa
+					Limpiar Pantalla
+					si opcionDefensa=1 Entonces
+						escribir "A elegido defensa cuerpo a cuerpo"
+						escribir "Presione cualquier tecla para saber su resultado"
+					Sino
+						si opcionDefensa=2 Entonces
+							escribir "A elegido defensa fuerte"
+							escribir "Presione cualquier tecla para saber su resultado"
+						FinSi
+					FinSi
+					esperar Tecla
+					Limpiar Pantalla
+					si opcionAtaque=1 y opcionDefensa=1 Entonces
+						resultado=resultado+SaltoLargoDefensaCuerpoaCuerpo(total2)
+						escribir "Los ",jugador1," lleva ",resultado," puntos en total"
+					FinSi
+					si opcionAtaque=1 y opcionDefensa=2 Entonces
+						resultado=resultado+SaltoLargoDefensaFuerte(total3)
+						Escribir "Los ",jugador1," lleva ",resultado," puntos en total"
+					FinSi
+					si opcionAtaque=2 y opcionDefensa=1 Entonces
+						resultado=resultado+SaltoCortoDefensaCuerpoaCuerpo(total4)
+						escribir "Los ",jugador1," lleva ",resultado," puntos en total"
+					FinSi
+					si opcionAtaque=2 y opcionDefensa=2 Entonces
+						resultado=resultado+SaltoCortoDefensaFuerte(total5)
+						escribir "Los ",jugador1," lleva ",resultado," puntos en total"
+					FinSi
+					esperar tecla
+					limpiar pantalla 
+					Escribir "Turno de ",jugador2
+					Escribir "Presione cualquier tecla para continuar"
+					esperar Tecla
+					Limpiar Pantalla
+					Escribir "Eliga una de las opciones de ataque que se le presentan a continuacion"
+					escribir "1. Salto Largo (3 pts y 65% probabilidad de anotar)"
+					escribir "2. Salto Corto (2 pts y 80% probabilidad de anotar)"
+					leer opcionAtaque
+					Limpiar Pantalla
+					si opcionAtaque=1 Entonces
+						escribir "A elegido Salto Largo"
+						escribir "Presione cualquier tecla para saber su resultado"
+					Sino
+						si opcionAtaque=2 entonces 
+							escribir "A elegido Salto Corto"
+							escribir "Presione cualquier tecla para saber su resultado"
+						FinSi
+					FinSi
+					esperar Tecla
+					Limpiar Pantalla
+					escribir "Turno de ",jugador1
+					escribir "Presione cualquier tecla para continuar"
+					esperar tecla
+					Limpiar Pantalla
+					escribir "Eliga una de las opciones de defensa que se le presentan a continuacion"
+					escribir "1. Defensa cuerpo a cuerpo (reduce la posibilidad de anotar en un 15% y da un 35% de posibilidad de cometer falta"
+					escribir "2. Defensa fuerte (reduce la posibilidad de anotar en un 30% y da un 65% de probabilidad de cometer falta"
+					leer opcionDefensa
+					Limpiar Pantalla
+					si opcionDefensa=1 Entonces
+						escribir "A elegido defensa cuerpo a cuerpo"
+						escribir "Presione cualquier tecla para saber su resultado"
+					Sino
+						si opcionDefensa=2 Entonces
+							escribir "A elegido defensa fuerte"
+							escribir "Presione cualquier tecla para saber su resultado"
+						FinSi
+					FinSi
+					esperar Tecla
+					Limpiar Pantalla
+					si opcionAtaque=1 y opcionDefensa=1 Entonces
+						resultado2=resultado2+SaltoLargoDefensaCuerpoaCuerpo(total2)
+						escribir "Los ",jugador2," lleva ",resultado2," puntos en total"
+					FinSi
+					si opcionAtaque=1 y opcionDefensa=2 Entonces
+						resultado2=resultado2+SaltoLargoDefensaFuerte(total3)
+						Escribir "Los ",jugador2," lleva ",resultado2," puntos en total"
+					FinSi
+					si opcionAtaque=2 y opcionDefensa=1 Entonces
+						resultado2=resultado2+SaltoCortoDefensaCuerpoaCuerpo(total4)
+						escribir "Los ",jugador2," lleva ",resultado2," puntos en total"
+					FinSi
+					si opcionAtaque=2 y opcionDefensa=2 Entonces
+						resultado2=resultado2+SaltoCortoDefensaFuerte(total5)
+						escribir "Los ",jugador2," lleva ",resultado2," puntos en total"
+					FinSi
+					esperar tecla
+					limpiar pantalla
+				sino
+					si primerTurno>50 Entonces
+				//------------------------------------------------------------------------------------------------------
+						Escribir "Turno de ",jugador2
+						Escribir "Presione cualquier tecla para continuar"
+						esperar Tecla
+						Limpiar Pantalla
+						Escribir "Eliga una de las opciones de ataque que se le presentan a continuacion"
+						escribir "1. Salto Largo (3 pts y 65% probabilidad de anotar)"
+						escribir "2. Salto Corto (2 pts y 80% probabilidad de anotar)"
+						leer opcionAtaque
+						Limpiar Pantalla
+						si opcionAtaque=1 Entonces
+							escribir "A elegido Salto Largo"
+							escribir "Presione cualquier tecla para saber su resultado"
+						Sino
+							si opcionAtaque=2 entonces 
+								escribir "A elegido Salto Corto"
+								escribir "Presione cualquier tecla para saber su resultado"
+							FinSi
+						FinSi
+						esperar Tecla
+						Limpiar Pantalla
+						escribir "Turno del ",jugador1
+						escribir "Presione cualquier tecla para continuar"
+						esperar tecla
+						Limpiar Pantalla
+						escribir "Eliga una de las opciones de defensa que se le presentan a continuacion"
+						escribir "1. Defensa cuerpo a cuerpo (reduce la posibilidad de anotar en un 15% y da un 35% de posibilidad de cometer falta"
+						escribir "2. Defensa fuerte (reduce la posibilidad de anotar en un 30% y da un 65% de probabilidad de cometer falta"
+						leer opcionDefensa
+						Limpiar Pantalla
+						si opcionDefensa=1 Entonces
+							escribir "A elegido defensa cuerpo a cuerpo"
+							escribir "Presione cualquier tecla para saber su resultado"
+						Sino
+							si opcionDefensa=2 Entonces
+								escribir "A elegido defensa fuerte"
+								escribir "Presione cualquier tecla para saber su resultado"
+							FinSi
+						FinSi
+						esperar Tecla
+						Limpiar Pantalla
+						si opcionAtaque=1 y opcionDefensa=1 Entonces
+							resultado2=resultado2+SaltoLargoDefensaCuerpoaCuerpo(total2)
+							escribir "Los ",jugador2," lleva ",resultado2," puntos en total"
+						FinSi
+						si opcionAtaque=1 y opcionDefensa=2 Entonces
+							resultado2=resultado2+SaltoLargoDefensaFuerte(total3)
+							Escribir "Los ",jugador2," lleva ",resultado2," puntos en total"
+						FinSi
+						si opcionAtaque=2 y opcionDefensa=1 Entonces
+							resultado2=resultado2+SaltoCortoDefensaCuerpoaCuerpo(total4)
+							escribir "Los ",jugador2," lleva ",resultado2," puntos en total"
+						FinSi
+						si opcionAtaque=2 y opcionDefensa=2 Entonces
+							resultado2=resultado2+SaltoCortoDefensaFuerte(total5)
+							escribir "Los ",jugador2," lleva ",resultado2," puntos en total"
+					
+					
+						FinSi
+						esperar tecla
+						limpiar pantalla 
+				
+						Escribir "Turno del ",jugador1
+						Escribir "Presione cualquier tecla para continuar"
+						esperar Tecla
+						Limpiar Pantalla
+						Escribir "Eliga una de las opciones de ataque que se le presentan a continuacion"
+						escribir "1. Salto Largo (3 pts y 65% probabilidad de anotar)"
+						escribir "2. Salto Corto (2 pts y 80% probabilidad de anotar)"
+						leer opcionAtaque
+						Limpiar Pantalla
+						si opcionAtaque=1 Entonces
+							escribir "A elegido Salto Largo"
+							escribir "Presione cualquier tecla para saber su resultado"
+						Sino
+							si opcionAtaque=2 entonces 
+								escribir "A elegido Salto Corto"
+								escribir "Presione cualquier tecla para saber su resultado"
+							FinSi
+						FinSi
+						esperar Tecla
+						Limpiar Pantalla
+						escribir "Turno del ",jugador2
+						escribir "Presione cualquier tecla para continuar"
+						esperar tecla
+						Limpiar Pantalla
+						escribir "Eliga una de las opciones de defensa que se le presentan a continuacion"
+						escribir "1. Defensa cuerpo a cuerpo (reduce la posibilidad de anotar en un 15% y da un 35% de posibilidad de cometer falta"
+						escribir "2. Defensa fuerte (reduce la posibilidad de anotar en un 30% y da un 65% de probabilidad de cometer falta"
+						leer opcionDefensa
+						Limpiar Pantalla
+						si opcionDefensa=1 Entonces
+							escribir "A elegido defensa cuerpo a cuerpo"
+							escribir "Presione cualquier tecla para saber su resultado"
+						Sino
+							si opcionDefensa=2 Entonces
+								escribir "A elegido defensa fuerte"
+								escribir "Presione cualquier tecla para saber su resultado"
+							FinSi
+						FinSi
+						esperar Tecla
+						Limpiar Pantalla
+						si opcionAtaque=1 y opcionDefensa=1 Entonces
+							resultado=resultado+SaltoLargoDefensaCuerpoaCuerpo(total2)
+							escribir "Los ",jugador1," lleva ",resultado," puntos en total"
+						FinSi
+						si opcionAtaque=1 y opcionDefensa=2 Entonces
+							resultado=resultado+SaltoLargoDefensaFuerte(total3)
+							Escribir "Los ",jugador1," lleva ",resultado," puntos en total"
+						FinSi
+						si opcionAtaque=2 y opcionDefensa=1 Entonces
+							resultado=resultado+SaltoCortoDefensaCuerpoaCuerpo(total4)
+							escribir "Los ",jugador1," lleva ",resultado," puntos en total"
+						FinSi
+						si opcionAtaque=2 y opcionDefensa=2 Entonces
+							resultado=resultado+SaltoCortoDefensaFuerte(total5)
+							escribir "Los ",jugador1," lleva ",resultado," puntos en total"
+						FinSi
+						esperar tecla
+						limpiar pantalla
+				//-------------------------------------------------------------------------------------------------------
+					FinSi
+				FinSi
+			FinPara
+			si resultado>resultado2 Entonces
+				escribir "Felicidades ",jugador1," han ganado el partido"
+			FinSi
+			si resultado<resultado2 Entonces
+				escribir "Felicidades ",jugador2," han ganado el partido"
+			FinSi
+			si resultado=resultado2 Entonces
+				escribir "Han quedado empates"
+			FinSi
+		finmientras 
+		si numTurnos<5 o numTurnos>20 Entonces
+			escribir "El numero debe estar entre el rango escrito"
+			esperar tecla 
+			Limpiar Pantalla
+		FinSi
+		escribir "Desea jugar de nuevo?  1. SI    Cualquier otro numero. No"
+		leer repetirPrograma 
+		Limpiar Pantalla
+	finmientras 
+FinProceso
+
+SubProceso total = faltaTirolibre(arg)
+	tirolibre<-azar(100)+1
+	anotacionFalta=2
+	Escribir "Has cometido una falta"
+	Escribir "Contrincante porfavor presiona cualquier tecla para hacer tu tiro"
+	esperar Tecla
+	Limpiar Pantalla
+	si tirolibre<=90 Entonces
+		escribir "Has anotado ",anotacionFalta
+		total=total+anotacionFalta
+	sino 
+		si tirolibre>90 Entonces
+			escribir "Has fallado"
+		FinSi
+	FinSi
+FinSubProceso
+
+SubProceso total2 = SaltoLargoDefensaCuerpoaCuerpo(arg)
+	anotacionSaltoLargo=3
+	tiroSaltoLargo<-azar(100)+1
+	faltaCuerpoaCuerpo<-azar(100)+1
+	si faltaCuerpoaCuerpo>35 entonces 
+		si tiroSaltoLargo<=50 Entonces
+			escribir "Has anotado ",anotacionSaltoLargo
+			total2=total2+anotacionSaltoLargo
+		sino 
+			si tiroSaltoLargo>50 Entonces
+			escribir "Has fallado"
+			FinSi
+		FinSi
+	Sino
+		si faltaCuerpoaCuerpo<=35 Entonces
+			falta=faltaTirolibre(total)
+			escribir falta
+			total2=total2+falta
+		FinSi
+	finsi	
+FinSubProceso
+
+SubProceso total3 = SaltoLargoDefensaFuerte(arg)
+	anotacionSaltoLargo=3
+	tiroSaltoLargo2<-azar(100)+1
+	faltaFuerte<-azar(100)+1
+	si faltaFuerte>65 entonces 
+		si tiroSaltoLargo2<=35 Entonces
+			escribir "Has anotado ",anotacionSaltoLargo
+			total3=total3+anotacionSaltoLargo
+		Sino
+			si tiroSaltoLargo2>35 Entonces
+				escribir "Has fallado"
+			FinSi
+		FinSi
+	Sino
+		si faltaFuerte<=65 Entonces
+			falta2=faltaTirolibre(total)
+			escribir falta2
+			total3=total3+falta2
+		FinSi
+	FinSi
+FinSubProceso
+
+subproceso total4 = SaltoCortoDefensaCuerpoaCuerpo(arg)
+	anotacionSaltoCorto=2
+	tiroSaltoCorto<-azar(100)+1
+	faltaCuerpoaCuerpo2<-azar(100)+1
+	si faltaCuerpoaCuerpo2>35 entonces 
+		si tiroSaltoCorto<=65 Entonces
+			escribir "Has anotado ",anotacionSaltoCorto
+			total4=total4+anotacionSaltoCorto
+		Sino
+			si tiroSaltoCorto>65 Entonces
+				escribir "Has fallado"
+			FinSi
+		FinSi
+	Sino
+		si faltaCuerpoaCuerpo2<=35 Entonces
+			falta3=faltaTirolibre(total)
+			escribir falta3
+			total4=total4+falta3
+		FinSi
+	FinSi
+FinSubProceso
+
+SubProceso total5 =  SaltoCortoDefensaFuerte(arg)
+	anotacionSaltoCorto=2
+	tiroSaltoCorto2<-azar(100)+1
+	faltaFuerte2<-azar(100)+1
+	si faltaFuerte2>65 Entonces
+		si tiroSaltoCorto2<=50 Entonces
+			escribir "Has anotado ",anotacionSaltoCorto
+			total5=total5+anotacionSaltoCorto		
+		Sino
+			si tiroSaltoCorto2>50 Entonces
+				escribir "Has fallado"
+			FinSi
+		FinSi
+	Sino
+		si faltaFuerte<=65 Entonces
+			falta4=faltaTirolibre(total)
+			escribir falta4
+			total5=total5+falta4
+		FinSi
+	FinSi
+FinSubProceso

@@ -1,0 +1,727 @@
+Proceso JuegoCompleto
+	Repetir
+		Escribir 'Bienvenido al menu de juegos: '
+		Escribir '1. Ahorcado'
+		Escribir '2. Basketball'
+		Escribir '3. Juego de Cartas'
+		Escribir '4. Hanoi:'
+		Escribir '5. Salir'
+		Escribir 'Porfavor eliga una de las opciones'
+		Leer opcion
+		Borrar Pantalla
+		Segun opcion  Hacer
+			1:
+				Escribir Ahorcado(retorno)
+			2:
+				Escribir basquetball(retorno2)
+			3:
+				Escribir Cartas(retorno3)
+			4:
+				Escribir hanoi(retorno4)
+			5:
+				Escribir 'Vuelva pronto!'
+			De Otro Modo:
+				Escribir 'Opcion no Valida, porfavor intente otra vez'
+		FinSegun
+		Escribir 'Presiona ENTER para continuar'
+		Esperar Tecla
+		Borrar Pantalla
+	Hasta Que opcion=5
+FinProceso
+
+SubProceso retorno=Ahorcado(arg)
+	Dimension a(11),b(11)
+	a(1)<-(('-'))
+	a(2)<-(('-'))
+	a(3)<-(('-'))
+	a(4)<-(('-'))
+	a(5)<-(('-'))
+	a(6)<-(('-'))
+	a(7)<-(('-'))
+	a(8)<-(('-'))
+	a(9)<-(('-'))
+	a(10)<-(('-'))
+	intentos<-10
+	//-------------------------------------------------------------------------------------AHORCADO
+	Escribir 'Bienvenido a AHORCADO'
+	Escribir 'Anfitrion ingrese palabra a escribir (maximo 10 letras)'
+	Escribir 'Despues de escribir la palabra DOBLE ENTER para iniciar'
+	Leer palabraAsignada
+	Borrar Pantalla
+	cantidad<-Longitud(palabraAsignada)
+	Si cantidad<=10 Entonces
+		Escribir ''
+		Para i<-1 Hasta cantidad Hacer
+			b(i)<-((Subcadena(palabraAsignada,i,i)))
+		FinPara
+		Mientras palabraAsignada<>palabraTotal Y intentos>0 Hacer
+			Escribir 'Ingrese la palabra que desea conveniente'
+			Escribir 'PISTA, es una palabra de ',cantidad,' letras'
+			Leer letraAsignada
+			Si letraAsignada=b(1) O letraAsignada=b(2) O letraAsignada=b(3) O letraAsignada=b(4) O letraAsignada=b(5) O LETRAASIGNADA=b(6) O letraAsignada=b(7) O letraAsignada=b(8) O letraAsignada=b(9) O letraAsignada=b(10) Entonces
+				Para i<-1 Hasta 11 Hacer
+					Si letraAsignada=b(i) Entonces
+						aux<-a(i)
+						a(i)<-((b(i)))
+						b(i)<-((aux))
+						Escribir ''
+					FinSi
+					Borrar Pantalla
+				FinPara
+				palabraTotal<-a(1)+a(2)+a(3)+a(4)+a(5)+a(6)+a(7)+a(8)+a(9)+a(10)+a(11)
+			Sino
+				intentos<-intentos-1
+				Para w<-1 Hasta 1 Hacer
+					Borrar Pantalla
+				FinPara
+			FinSi
+			Escribir palabraTotal
+			Escribir ''
+			Escribir ''
+			Si intentos=9 Entonces
+				Escribir ' '
+				Escribir ' '
+				Escribir '|'
+				Escribir '|'
+			FinSi
+			Si intentos=8 Entonces
+				Escribir '|'
+				Escribir '|'
+				Escribir '|'
+				Escribir '|'
+			FinSi
+			Si intentos=7 Entonces
+				Escribir '|------'
+				Escribir '|'
+				Escribir '|'
+				Escribir '|'
+			FinSi
+			Si intentos=6 Entonces
+				Escribir '|------|'
+				Escribir '|'
+				Escribir '|'
+				Escribir '|'
+			FinSi
+			Si intentos=5 Entonces
+				Escribir '|------|'
+				Escribir '|      O'
+				Escribir '|'
+				Escribir '|'
+			FinSi
+			Si intentos=4 Entonces
+				Escribir '|------|'
+				Escribir '|      O'
+				Escribir '|      |'
+				Escribir '|'
+			FinSi
+			Si intentos=3 Entonces
+				Escribir '|------|'
+				Escribir '|      O'
+				Escribir '|     /|\'
+				Escribir '|'
+			FinSi
+			Si intentos=2 Entonces
+				Escribir '|------|'
+				Escribir '|      O'
+				Escribir '|     /|\'
+				Escribir '|     /'
+			FinSi
+			Si intentos=1 Entonces
+				Escribir '|------|'
+				Escribir '|      O'
+				Escribir '|     /|\'
+				Escribir '|     / '
+			FinSi
+		FinMientras
+		Si intentos=0 Entonces
+			Escribir '|------|'
+			Escribir '|      O'
+			Escribir '|     /|\'
+			Escribir '|     / \'
+			Escribir 'Has perdido :(, la palabra correcta era ***',palabraAsignada,'***'
+		Sino
+			Escribir 'Has ganado el juego FELICIDADES! :D'
+		FinSi
+	Sino
+		Escribir 'La palabra debe ser menor a 10 letras'
+	FinSi
+	Esperar Tecla
+	Borrar Pantalla
+FinSubProceso
+//------------------------------------------------------------------------------------BASQUETBALL
+SubProceso retorno2=basquetball(arg)
+	primerTurno<-azar(100)+1
+	repetirPrograma<-1
+	Mientras repetirPrograma=1 Hacer
+		Escribir 'Bienvenido a BASQUETBALL'
+		Escribir 'Porfavor jugador 1 escriba el nombre de su equipo'
+		Leer jugador1
+		Escribir 'Porfavor jugador 2 escriba el nombre de su equipo'
+		Leer jugador2
+		Borrar Pantalla
+		Escribir 'Bienvenidos ',jugador1,' , ',jugador2
+		Escribir 'Defina el numero de turnos del partido(rango entre 5 a 20)'
+		Leer numTurnos
+		Borrar Pantalla
+		Mientras numTurnos>=5 Y numTurnos<=20 Hacer
+			Escribir 'A continuacion se elegira al azar el jugador que iniciara'
+			Escribir 'Presione cualquier tecla para continuar'
+			Esperar Tecla
+			Borrar Pantalla
+			Para contadorTurnos<-1 Hasta numTurnos Hacer
+				Si primerTurno<=50 Entonces
+					Escribir 'Turno de ',jugador1
+					Escribir 'Presione cualquier tecla para continuar'
+					Esperar Tecla
+					Borrar Pantalla
+					Escribir 'Eliga una de las opciones de ataque que se le presentan a continuacion'
+					Escribir '1. Salto Largo (3 pts y 65% probabilidad de anotar)'
+					Escribir '2. Salto Corto (2 pts y 80% probabilidad de anotar)'
+					Leer opcionAtaque
+					Borrar Pantalla
+					Si opcionAtaque=1 Entonces
+						Escribir 'A elegido Salto Largo'
+						Escribir 'Presione cualquier tecla para saber su resultado'
+					Sino
+						Si opcionAtaque=2 Entonces
+							Escribir 'A elegido Salto Corto'
+							Escribir 'Presione cualquier tecla para saber su resultado'
+						FinSi
+					FinSi
+					Esperar Tecla
+					Borrar Pantalla
+					Escribir 'Turno de ',jugador2
+					Escribir 'Presione cualquier tecla para continuar'
+					Esperar Tecla
+					Borrar Pantalla
+					Escribir 'Eliga una de las opciones de defensa que se le presentan a continuacion'
+					Escribir '1. Defensa cuerpo a cuerpo (reduce la posibilidad de anotar en un 15% y da un 35% de posibilidad de cometer falta'
+					Escribir '2. Defensa fuerte (reduce la posibilidad de anotar en un 30% y da un 65% de probabilidad de cometer falta'
+					Leer opcionDefensa
+					Borrar Pantalla
+					Si opcionDefensa=1 Entonces
+						Escribir 'A elegido defensa cuerpo a cuerpo'
+						Escribir 'Presione cualquier tecla para saber su resultado'
+					Sino
+						Si opcionDefensa=2 Entonces
+							Escribir 'A elegido defensa fuerte'
+							Escribir 'Presione cualquier tecla para saber su resultado'
+						FinSi
+					FinSi
+					Esperar Tecla
+					Borrar Pantalla
+					Si opcionAtaque=1 Y opcionDefensa=1 Entonces
+						resultado<-resultado+SaltoLargoDefensaCuerpoaCuerpo(total2)
+						Escribir 'Los ',jugador1,' lleva ',resultado,' puntos en total'
+					FinSi
+					Si opcionAtaque=1 Y opcionDefensa=2 Entonces
+						resultado<-resultado+SaltoLargoDefensaFuerte(total3)
+						Escribir 'Los ',jugador1,' lleva ',resultado,' puntos en total'
+					FinSi
+					Si opcionAtaque=2 Y opcionDefensa=1 Entonces
+						resultado<-resultado+SaltoCortoDefensaCuerpoaCuerpo(total4)
+						Escribir 'Los ',jugador1,' lleva ',resultado,' puntos en total'
+					FinSi
+					Si opcionAtaque=2 Y opcionDefensa=2 Entonces
+						resultado<-resultado+SaltoCortoDefensaFuerte(total5)
+						Escribir 'Los ',jugador1,' lleva ',resultado,' puntos en total'
+					FinSi
+					Esperar Tecla
+					Borrar Pantalla
+					Escribir 'Turno de ',jugador2
+					Escribir 'Presione cualquier tecla para continuar'
+					Esperar Tecla
+					Borrar Pantalla
+					Escribir 'Eliga una de las opciones de ataque que se le presentan a continuacion'
+					Escribir '1. Salto Largo (3 pts y 65% probabilidad de anotar)'
+					Escribir '2. Salto Corto (2 pts y 80% probabilidad de anotar)'
+					Leer opcionAtaque
+					Borrar Pantalla
+					Si opcionAtaque=1 Entonces
+						Escribir 'A elegido Salto Largo'
+						Escribir 'Presione cualquier tecla para saber su resultado'
+					Sino
+						Si opcionAtaque=2 Entonces
+							Escribir 'A elegido Salto Corto'
+							Escribir 'Presione cualquier tecla para saber su resultado'
+						FinSi
+					FinSi
+					Esperar Tecla
+					Borrar Pantalla
+					Escribir 'Turno de ',jugador1
+					Escribir 'Presione cualquier tecla para continuar'
+					Esperar Tecla
+					Borrar Pantalla
+					Escribir 'Eliga una de las opciones de defensa que se le presentan a continuacion'
+					Escribir '1. Defensa cuerpo a cuerpo (reduce la posibilidad de anotar en un 15% y da un 35% de posibilidad de cometer falta'
+					Escribir '2. Defensa fuerte (reduce la posibilidad de anotar en un 30% y da un 65% de probabilidad de cometer falta'
+					Leer opcionDefensa
+					Borrar Pantalla
+					Si opcionDefensa=1 Entonces
+						Escribir 'A elegido defensa cuerpo a cuerpo'
+						Escribir 'Presione cualquier tecla para saber su resultado'
+					Sino
+						Si opcionDefensa=2 Entonces
+							Escribir 'A elegido defensa fuerte'
+							Escribir 'Presione cualquier tecla para saber su resultado'
+						FinSi
+					FinSi
+					Esperar Tecla
+					Borrar Pantalla
+					Si opcionAtaque=1 Y opcionDefensa=1 Entonces
+						resultado2<-resultado2+SaltoLargoDefensaCuerpoaCuerpo(total2)
+						Escribir 'Los ',jugador2,' lleva ',resultado2,' puntos en total'
+					FinSi
+					Si opcionAtaque=1 Y opcionDefensa=2 Entonces
+						resultado2<-resultado2+SaltoLargoDefensaFuerte(total3)
+						Escribir 'Los ',jugador2,' lleva ',resultado2,' puntos en total'
+					FinSi
+					Si opcionAtaque=2 Y opcionDefensa=1 Entonces
+						resultado2<-resultado2+SaltoCortoDefensaCuerpoaCuerpo(total4)
+						Escribir 'Los ',jugador2,' lleva ',resultado2,' puntos en total'
+					FinSi
+					Si opcionAtaque=2 Y opcionDefensa=2 Entonces
+						resultado2<-resultado2+SaltoCortoDefensaFuerte(total5)
+						Escribir 'Los ',jugador2,' lleva ',resultado2,' puntos en total'
+					FinSi
+					Esperar Tecla
+					Borrar Pantalla
+				Sino
+					Si primerTurno>50 Entonces
+						// ------------------------------------------------------------------------------------------------------
+						Escribir 'Turno de ',jugador2
+						Escribir 'Presione cualquier tecla para continuar'
+						Esperar Tecla
+						Borrar Pantalla
+						Escribir 'Eliga una de las opciones de ataque que se le presentan a continuacion'
+						Escribir '1. Salto Largo (3 pts y 65% probabilidad de anotar)'
+						Escribir '2. Salto Corto (2 pts y 80% probabilidad de anotar)'
+						Leer opcionAtaque
+						Borrar Pantalla
+						Si opcionAtaque=1 Entonces
+							Escribir 'A elegido Salto Largo'
+							Escribir 'Presione cualquier tecla para saber su resultado'
+						Sino
+							Si opcionAtaque=2 Entonces
+								Escribir 'A elegido Salto Corto'
+								Escribir 'Presione cualquier tecla para saber su resultado'
+							FinSi
+						FinSi
+						Esperar Tecla
+						Borrar Pantalla
+						Escribir 'Turno del ',jugador1
+						Escribir 'Presione cualquier tecla para continuar'
+						Esperar Tecla
+						Borrar Pantalla
+						Escribir 'Eliga una de las opciones de defensa que se le presentan a continuacion'
+						Escribir '1. Defensa cuerpo a cuerpo (reduce la posibilidad de anotar en un 15% y da un 35% de posibilidad de cometer falta'
+						Escribir '2. Defensa fuerte (reduce la posibilidad de anotar en un 30% y da un 65% de probabilidad de cometer falta'
+						Leer opcionDefensa
+						Borrar Pantalla
+						Si opcionDefensa=1 Entonces
+							Escribir 'A elegido defensa cuerpo a cuerpo'
+							Escribir 'Presione cualquier tecla para saber su resultado'
+						Sino
+							Si opcionDefensa=2 Entonces
+								Escribir 'A elegido defensa fuerte'
+								Escribir 'Presione cualquier tecla para saber su resultado'
+							FinSi
+						FinSi
+						Esperar Tecla
+						Borrar Pantalla
+						Si opcionAtaque=1 Y opcionDefensa=1 Entonces
+							resultado2<-resultado2+SaltoLargoDefensaCuerpoaCuerpo(total2)
+							Escribir 'Los ',jugador2,' lleva ',resultado2,' puntos en total'
+						FinSi
+						Si opcionAtaque=1 Y opcionDefensa=2 Entonces
+							resultado2<-resultado2+SaltoLargoDefensaFuerte(total3)
+							Escribir 'Los ',jugador2,' lleva ',resultado2,' puntos en total'
+						FinSi
+						Si opcionAtaque=2 Y opcionDefensa=1 Entonces
+							resultado2<-resultado2+SaltoCortoDefensaCuerpoaCuerpo(total4)
+							Escribir 'Los ',jugador2,' lleva ',resultado2,' puntos en total'
+						FinSi
+						Si opcionAtaque=2 Y opcionDefensa=2 Entonces
+							resultado2<-resultado2+SaltoCortoDefensaFuerte(total5)
+							Escribir 'Los ',jugador2,' lleva ',resultado2,' puntos en total'
+						FinSi
+						Esperar Tecla
+						Borrar Pantalla
+						Escribir 'Turno del ',jugador1
+						Escribir 'Presione cualquier tecla para continuar'
+						Esperar Tecla
+						Borrar Pantalla
+						Escribir 'Eliga una de las opciones de ataque que se le presentan a continuacion'
+						Escribir '1. Salto Largo (3 pts y 65% probabilidad de anotar)'
+						Escribir '2. Salto Corto (2 pts y 80% probabilidad de anotar)'
+						Leer opcionAtaque
+						Borrar Pantalla
+						Si opcionAtaque=1 Entonces
+							Escribir 'A elegido Salto Largo'
+							Escribir 'Presione cualquier tecla para saber su resultado'
+						Sino
+							Si opcionAtaque=2 Entonces
+								Escribir 'A elegido Salto Corto'
+								Escribir 'Presione cualquier tecla para saber su resultado'
+							FinSi
+						FinSi
+						Esperar Tecla
+						Borrar Pantalla
+						Escribir 'Turno del ',jugador2
+						Escribir 'Presione cualquier tecla para continuar'
+						Esperar Tecla
+						Borrar Pantalla
+						Escribir 'Eliga una de las opciones de defensa que se le presentan a continuacion'
+						Escribir '1. Defensa cuerpo a cuerpo (reduce la posibilidad de anotar en un 15% y da un 35% de posibilidad de cometer falta'
+						Escribir '2. Defensa fuerte (reduce la posibilidad de anotar en un 30% y da un 65% de probabilidad de cometer falta'
+						Leer opcionDefensa
+						Borrar Pantalla
+						Si opcionDefensa=1 Entonces
+							Escribir 'A elegido defensa cuerpo a cuerpo'
+							Escribir 'Presione cualquier tecla para saber su resultado'
+						Sino
+							Si opcionDefensa=2 Entonces
+								Escribir 'A elegido defensa fuerte'
+								Escribir 'Presione cualquier tecla para saber su resultado'
+							FinSi
+						FinSi
+						Esperar Tecla
+						Borrar Pantalla
+						Si opcionAtaque=1 Y opcionDefensa=1 Entonces
+							resultado<-resultado+SaltoLargoDefensaCuerpoaCuerpo(total2)
+							Escribir 'Los ',jugador1,' lleva ',resultado,' puntos en total'
+						FinSi
+						Si opcionAtaque=1 Y opcionDefensa=2 Entonces
+							resultado<-resultado+SaltoLargoDefensaFuerte(total3)
+							Escribir 'Los ',jugador1,' lleva ',resultado,' puntos en total'
+						FinSi
+						Si opcionAtaque=2 Y opcionDefensa=1 Entonces
+							resultado<-resultado+SaltoCortoDefensaCuerpoaCuerpo(total4)
+							Escribir 'Los ',jugador1,' lleva ',resultado,' puntos en total'
+						FinSi
+						Si opcionAtaque=2 Y opcionDefensa=2 Entonces
+							resultado<-resultado+SaltoCortoDefensaFuerte(total5)
+							Escribir 'Los ',jugador1,' lleva ',resultado,' puntos en total'
+						FinSi
+						Esperar Tecla
+						Borrar Pantalla
+						// -------------------------------------------------------------------------------------------------------
+					FinSi
+				FinSi
+			FinPara
+			Si resultado>resultado2 Entonces
+				Escribir 'Felicidades ',jugador1,' han ganado el partido'
+			FinSi
+			Si resultado<resultado2 Entonces
+				Escribir 'Felicidades ',jugador2,' han ganado el partido'
+			FinSi
+			Si resultado=resultado2 Entonces
+				Escribir 'Han quedado empates'
+			FinSi
+		FinMientras
+		Si numTurnos<5 O numTurnos>20 Entonces
+			Escribir 'El numero debe estar entre el rango escrito'
+			Esperar Tecla
+			Borrar Pantalla
+		FinSi
+		Escribir 'Desea jugar de nuevo?  1. SI    Cualquier otro numero. No'
+		Leer repetirPrograma
+		Borrar Pantalla
+	FinMientras
+FinSubProceso
+
+SubProceso total=faltaTirolibre(arg)
+	tirolibre<-azar(100)+1
+	anotacionFalta<-2
+	Escribir 'Has cometido una falta'
+	Escribir 'Contrincante porfavor presiona cualquier tecla para hacer tu tiro'
+	Esperar Tecla
+	Borrar Pantalla
+	Si tirolibre<=90 Entonces
+		Escribir 'Has anotado ',anotacionFalta
+		total<-total+anotacionFalta
+	Sino
+		Si tirolibre>90 Entonces
+			Escribir 'Has fallado'
+		FinSi
+	FinSi
+FinSubProceso
+
+SubProceso total2=SaltoLargoDefensaCuerpoaCuerpo(arg)
+	anotacionSaltoLargo<-3
+	tiroSaltoLargo<-azar(100)+1
+	faltaCuerpoaCuerpo<-azar(100)+1
+	Si faltaCuerpoaCuerpo>35 Entonces
+		Si tiroSaltoLargo<=50 Entonces
+			Escribir 'Has anotado ',anotacionSaltoLargo
+			total2<-total2+anotacionSaltoLargo
+		Sino
+			Si tiroSaltoLargo>50 Entonces
+				Escribir 'Has fallado'
+			FinSi
+		FinSi
+	Sino
+		Si faltaCuerpoaCuerpo<=35 Entonces
+			falta<-faltaTirolibre(total)
+			Escribir falta
+			total2<-total2+falta
+		FinSi
+	FinSi
+FinSubProceso
+
+SubProceso total3=SaltoLargoDefensaFuerte(arg)
+	anotacionSaltoLargo<-3
+	tiroSaltoLargo2<-azar(100)+1
+	faltaFuerte<-azar(100)+1
+	Si faltaFuerte>65 Entonces
+		Si tiroSaltoLargo2<=35 Entonces
+			Escribir 'Has anotado ',anotacionSaltoLargo
+			total3<-total3+anotacionSaltoLargo
+		Sino
+			Si tiroSaltoLargo2>35 Entonces
+				Escribir 'Has fallado'
+			FinSi
+		FinSi
+	Sino
+		Si faltaFuerte<=65 Entonces
+			falta2<-faltaTirolibre(total)
+			Escribir falta2
+			total3<-total3+falta2
+		FinSi
+	FinSi
+FinSubProceso
+
+SubProceso total4=SaltoCortoDefensaCuerpoaCuerpo(arg)
+	anotacionSaltoCorto<-2
+	tiroSaltoCorto<-azar(100)+1
+	faltaCuerpoaCuerpo2<-azar(100)+1
+	Si faltaCuerpoaCuerpo2>35 Entonces
+		Si tiroSaltoCorto<=65 Entonces
+			Escribir 'Has anotado ',anotacionSaltoCorto
+			total4<-total4+anotacionSaltoCorto
+		Sino
+			Si tiroSaltoCorto>65 Entonces
+				Escribir 'Has fallado'
+			FinSi
+		FinSi
+	Sino
+		Si faltaCuerpoaCuerpo2<=35 Entonces
+			falta3<-faltaTirolibre(total)
+			Escribir falta3
+			total4<-total4+falta3
+		FinSi
+	FinSi
+FinSubProceso
+
+SubProceso total5=SaltoCortoDefensaFuerte(arg)
+	anotacionSaltoCorto<-2
+	tiroSaltoCorto2<-azar(100)+1
+	faltaFuerte2<-azar(100)+1
+	Si faltaFuerte2>65 Entonces
+		Si tiroSaltoCorto2<=50 Entonces
+			Escribir 'Has anotado ',anotacionSaltoCorto
+			total5<-total5+anotacionSaltoCorto
+		Sino
+			Si tiroSaltoCorto2>50 Entonces
+				Escribir 'Has fallado'
+			FinSi
+		FinSi
+	Sino
+		Si faltaFuerte<=65 Entonces
+			falta4<-faltaTirolibre(total)
+			Escribir falta4
+			total5<-total5+falta4
+		FinSi
+	FinSi
+FinSubProceso
+//-------------------------------------------------------------------------------------------------CARTAS
+SubProceso retorno3=Cartas(arg)
+	repetirPrograma<-1
+	Mientras repetirPrograma=1 Hacer
+		Escribir 'Bienvenido al Juego de Cartas'
+		Escribir 'Porfavor ingrese el monto con el que iniciara'
+		Leer montoInicial
+		Borrar Pantalla
+		Mientras montoInicial>0 Hacer
+			carta1<-CartaMenor(resultado)
+			carta2<-CartaMayor(resultado2)
+			cartaAnt<-carta1-1
+			cartaAnt2<-carta2-1
+			Escribir carta1,'-',carta2
+			Escribir 'Ingrese la cantidad que desea apostar'
+			Leer apuesta
+			Si apuesta>montoInicial Entonces
+				Escribir 'No posees esa cantidad, intenta otra vez'
+				Esperar Tecla
+				Borrar Pantalla
+			Sino
+				cartaApuesta<-azar(13)+1
+				Escribir 'La carta que salio es: ',cartaApuesta
+				Si carta1>carta2 Y carta2<>cartaAnt Entonces
+					Si cartaApuesta>carta2 Y cartaApuesta<carta1 Entonces
+						montoInicial<-montoInicial+apuesta
+						Escribir montoInicial
+						Esperar Tecla
+						Borrar Pantalla
+					FinSi
+					Si cartaApuesta<carta2 O cartaApuesta>carta1 Entonces
+						montoInicial<-montoInicial-apuesta
+						Escribir montoInicial
+						Esperar Tecla
+						Borrar Pantalla
+					FinSi
+					Si cartaApuesta=carta1 O cartaApuesta=carta2 Entonces
+						Escribir 'Cartas invalidas por ser iguales a la que se acaba de sacar'
+						Escribir 'presiona cualquier tecla para seguir'
+						Esperar Tecla
+						Borrar Pantalla
+					FinSi
+				FinSi
+				Si carta2=cartaAnt Entonces
+					Escribir 'Ronda invalida porque ambas cartas estan seguidas'
+					Escribir 'Presiona cualquier tecla para seguir'
+					Esperar Tecla
+					Borrar Pantalla
+				FinSi
+				Si carta2>carta1 Y carta1<>cartaAnt2 Entonces
+					Si cartaApuesta>carta1 Y cartaApuesta<carta2 Entonces
+						montoInicial<-montoInicial+apuesta
+						Escribir montoInicial
+						Esperar Tecla
+						Borrar Pantalla
+					FinSi
+					Si cartaApuesta<carta1 O cartaApuesta>carta2 Entonces
+						montoInicial<-montoInicial-apuesta
+						Escribir montoInicial
+						Esperar Tecla
+						Borrar Pantalla
+					FinSi
+					Si cartaApuesta=carta1 O cartaApuesta=carta2 Entonces
+						Escribir 'Cartas invalidas por ser iguales a la que se acaba de sacar'
+						Escribir 'presiona cualquier tecla para seguir'
+						Esperar Tecla
+						Borrar Pantalla
+					FinSi
+				FinSi
+				Si carta1=cartaAnt2 Entonces
+					Escribir 'Ronda invalida porque ambas cartas estan seguidas'
+					Escribir 'Presiona cualquier tecla para seguir'
+					Esperar Tecla
+					Borrar Pantalla
+				FinSi
+				Si carta2=carta1 Entonces
+					Escribir 'Ronda invalida por igualdad en cartas'
+					Esperar Tecla
+					Borrar Pantalla
+				FinSi
+			FinSi
+		FinMientras
+		Si montoInicial<=0 Entonces
+			Escribir 'Te has quedado sin dinero, el juego a terminado'
+		FinSi
+		Esperar Tecla
+		Borrar Pantalla
+		Escribir 'Desea jugar otra vez??   1.Si    Cualquier otro numero=volver al MENU'
+		Leer repetirPrograma
+		Borrar Pantalla
+	FinMientras
+FinSubProceso
+
+SubProceso resultado=CartaMenor(arg)
+	cartaAleatoria1<-azar(13)+1
+	resultado<-cartaAleatoria1
+FinSubProceso
+
+SubProceso resultado2=CartaMayor(arg)
+	cartaAleatoria2<-azar(13)+1
+	resultado2<-cartaAleatoria2
+FinSubProceso
+//-------------------------------------------------------------------------------------------HANOI
+SubProceso retorno4=hanoi(arg)
+	Dimension numDiscos(3,10),torre(3)
+	repetirPrograma<-1
+	Mientras repetirPrograma=1 Hacer
+		Escribir 'Bienvenido a Las torres de Hanoi'
+		Escribir 'Ingrese la cantidad de discos con los que jugara'
+		Escribir 'Minimo 2, Maximo 10'
+		Leer cantDiscos
+		Borrar Pantalla
+		Mientras cantDiscos<2 O cantDiscos>10 Hacer
+			Escribir 'El numero que ingreso esta fuera de los parametros'
+			Leer cantDiscos
+			Borrar Pantalla
+		FinMientras
+		torre(1)<-(((cantDiscos)))
+		torre(2)<-(((0)))
+		torre(3)<-(((0)))
+		Para contadorY<-1 Hasta cantDiscos Hacer
+			numDiscos(1,contadorY)<-(((cantDiscos-contadorY+1)))
+		FinPara
+		Mientras torre(3)<>cantDiscos Hacer
+			Borrar Pantalla
+			Para posicionX<-1 Hasta 3 Hacer
+				Escribir 'torre: ',posicionX
+				Segun numDiscos(posicionX,contadorY)  Hacer
+					1:
+						Escribir '            z'
+					2:
+						Escribir '           zzz'
+					3:
+						Escribir '          zzzzz'
+					4:
+						Escribir '         zzzzzzz'
+					5:
+						Escribir '        zzzzzzzzz'
+					6:
+						Escribir '       zzzzzzzzzzz'
+					7:
+						Escribir '      zzzzzzzzzzzzz'
+					8:
+						Escribir '     zzzzzzzzzzzzzzzz'
+					9:
+						Escribir '    zzzzzzzzzzzzzzzzzz'
+					10:
+						Escribir '   zzzzzzzzzzzzzzzzzzzz'
+				FinSegun
+			FinPara
+			Escribir '------------------------------'
+			Escribir ''
+			Escribir ''
+			Escribir 'Numero de la torre desde donde desea mover '
+			Leer disco1
+			Escribir 'Numero de la torre a donde desea mover '
+			Leer disco2
+			falla<-mensajeFalla(retorno)
+			Si disco1<1 O disco1>3 O disco2<1 O disco2>3 Entonces
+				Escribir falla
+				Esperar Tecla
+			Sino
+				Si torre(disco1)=0 Entonces
+					Escribir falla
+					Esperar Tecla
+				Sino
+					Si siPuede=verdadero Entonces
+						torre(disco2)<-(((torre(disco2)+1)))
+						numDiscos(disco2,torre(disco2))<-(((discoMover)))
+						torre(disco1)<-(((torre(disco1)-1)))
+					Sino
+						Escribir falla
+						Esperar Tecla
+					FinSi
+				FinSi
+			FinSi
+			Borrar Pantalla
+		FinMientras
+		Escribir 'Felicidades, has ganado el juego'
+		Escribir 'Porfavor presiona cualquiera tecla para continuar'
+		Esperar Tecla
+		Borrar Pantalla
+		Escribir 'Deseas jugar de nuevo?  1. SI  Cualquier otro numero. Volver al menu'
+		Leer repetirPrograma
+		Borrar Pantalla
+	FinMientras
+FinSubProceso
+
+SubProceso retorno=mensajeFalla(arg)
+	Escribir 'Movimiento erroneo, intenta de nuevo'
+FinSubProceso

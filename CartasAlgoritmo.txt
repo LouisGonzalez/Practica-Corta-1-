@@ -1,0 +1,99 @@
+Proceso Cartas
+	repetirPrograma=1
+	mientras repetirPrograma=1 hacer 
+	Escribir "Bienvenido al Juego de Cartas"
+	escribir "Porfavor ingrese el monto con el que iniciara"
+	leer montoInicial
+	limpiar pantalla 
+	mientras montoInicial>0 Hacer
+		carta1=CartaMenor(resultado)
+		carta2=CartaMayor(resultado2)
+		cartaAnt=carta1-1
+		cartaAnt2=carta2-1
+		escribir carta1,"-",carta2
+		escribir "Ingrese la cantidad que desea apostar"
+		leer apuesta
+		si apuesta>montoInicial entonces
+			escribir "No posees esa cantidad, intenta otra vez"
+			esperar tecla 
+			limpiar pantalla 
+		sino
+		cartaApuesta<-azar(13)+1
+		escribir "La carta que salio es: ",cartaApuesta
+		si carta1>carta2 y carta2<>cartaAnt Entonces
+			si cartaApuesta>carta2 y cartaApuesta<carta1 entonces 
+				montoInicial=montoInicial+apuesta 
+				escribir montoInicial
+				esperar tecla 
+				Limpiar Pantalla
+			FinSi
+				si cartaApuesta<carta2 o cartaApuesta>carta1 entonces 
+					montoInicial=montoInicial-apuesta 
+					escribir montoInicial
+					esperar Tecla
+					limpiar pantalla 
+				FinSi
+				si cartaApuesta=carta1 o cartaApuesta=carta2 Entonces
+					escribir "Cartas invalidas por ser iguales a la que se acaba de sacar"
+					escribir "presiona cualquier tecla para seguir"
+					esperar tecla 
+					limpiar pantalla 
+				FinSi
+				finsi 
+				si carta2=cartaAnt Entonces
+					escribir "Ronda invalida porque ambas cartas estan seguidas"
+					escribir "Presiona cualquier tecla para seguir"
+					esperar tecla 
+					Limpiar Pantalla
+				FinSi
+		si carta2>carta1 y carta1<>cartaAnt2 Entonces
+			si cartaApuesta>carta1 y cartaApuesta<carta2 entonces 
+				montoInicial=montoInicial+apuesta 
+				escribir montoInicial
+				esperar tecla 
+				Limpiar Pantalla
+			FinSi
+			si cartaApuesta<carta1 o cartaApuesta>carta2 entonces 
+				montoInicial=montoInicial-apuesta 
+				escribir montoInicial
+				esperar tecla 
+				limpiar pantalla 
+			FinSi
+			si cartaApuesta=carta1 o cartaApuesta=carta2 Entonces
+				escribir "Cartas invalidas por ser iguales a la que se acaba de sacar"
+				escribir "presiona cualquier tecla para seguir"
+				esperar tecla 
+				limpiar pantalla 
+			FinSi
+			finsi 
+			si carta1=cartaAnt2 Entonces
+				escribir "Ronda invalida porque ambas cartas estan seguidas"
+				escribir "Presiona cualquier tecla para seguir"
+				esperar tecla 
+				Limpiar Pantalla
+			FinSi
+			si carta2=carta1 Entonces
+				escribir "Ronda invalida por igualdad en cartas"
+				esperar tecla 
+				Limpiar Pantalla
+			FinSi
+		finsi 	
+		finmientras 
+	si montoInicial<=0 entonces 
+		escribir "Te has quedado sin dinero, el juego a terminado" 
+	FinSi
+	esperar Tecla
+	limpiar pantalla 
+	escribir "Desea jugar otra vez??   1.Si    Cualquier otro numero=volver al MENU" 
+	leer repetirPrograma
+	limpiar pantalla 
+FinMientras
+FinProceso
+SubProceso resultado = CartaMenor(arg)
+	cartaAleatoria1<-azar(13)+1
+	resultado=cartaAleatoria1
+FinSubProceso
+SubProceso resultado2 = CartaMayor(arg)
+	cartaAleatoria2<-azar(13)+1
+	resultado2=cartaAleatoria2
+FinSubProceso
